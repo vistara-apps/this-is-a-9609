@@ -96,11 +96,16 @@ jobs:
             issue_number: context.issue.number,
             owner: context.repo.owner,
             repo: context.repo.repo,
-            body: `⚠️ **Vercel Deployment Skipped**
-            \n\nThe build completed successfully, but Vercel deployment was skipped because the required secrets are not configured.
-            \n\n**To enable deployment, configure these repository secrets:**
-            \n- \`VERCEL_TOKEN\`
-            \n- \`VERCEL_ORG_ID\`
-            \n- \`VERCEL_PROJECT_ID\`
-            \n\n✅ **Build Status:** Passed - The application builds successfully!`
+            body: `✅ **Build Successful!**
+            
+            The application has been built successfully. 
+            
+            ⚠️ **Deployment Skipped**: Vercel secrets are not configured.
+            
+            To enable automatic deployment, configure these repository secrets:
+            - \`VERCEL_TOKEN\`
+            - \`VERCEL_ORG_ID\`
+            - \`VERCEL_PROJECT_ID\`
+            
+            📦 Build artifacts are available for download from the Actions tab.`
           });
