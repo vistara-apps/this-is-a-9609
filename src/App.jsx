@@ -5,6 +5,7 @@ import FeatureCard from './components/FeatureCard';
 import Modal from './components/Modal';
 import ZKProofGenerator from './components/ZKProofGenerator';
 import AssetTokenizer from './components/AssetTokenizer';
+import SmartContractTemplates from './components/SmartContractTemplates';
 
 export default function App() {
   const [activeModal, setActiveModal] = useState(null);
@@ -26,7 +27,7 @@ export default function App() {
       icon: Sparkles,
       title: "Smart Contract Templates",
       description: "Access pre-audited smart contract templates for various use cases with integrated ZK proof verification.",
-      onClick: () => alert('Coming soon! Smart contract templates will be available in the next update.')
+      onClick: () => setActiveModal('templates')
     },
     {
       icon: Zap,
@@ -82,7 +83,7 @@ export default function App() {
               title={feature.title}
               description={feature.description}
               onClick={feature.onClick}
-              disabled={index > 1} // Disable marketplace and templates for now
+              disabled={index > 2} // Disable marketplace for now
             />
           ))}
         </div>
@@ -145,6 +146,17 @@ export default function App() {
       >
         <AssetTokenizer 
           isOpen={activeModal === 'tokenize'}
+          onClose={() => setActiveModal(null)}
+        />
+      </Modal>
+
+      <Modal
+        isOpen={activeModal === 'templates'}
+        onClose={() => setActiveModal(null)}
+        title="Smart Contract Templates"
+      >
+        <SmartContractTemplates 
+          isOpen={activeModal === 'templates'}
           onClose={() => setActiveModal(null)}
         />
       </Modal>
